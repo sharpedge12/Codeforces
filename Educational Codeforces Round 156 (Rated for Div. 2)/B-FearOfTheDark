@@ -1,0 +1,48 @@
+import java.util.Scanner;
+ 
+public class main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+ 
+        // Read the number of test cases
+        int t = scanner.nextInt();
+ 
+        // Process each test case
+        while (t-- > 0) {
+            // Read the coordinates of the points (px, py), (ax, ay), (bx, by)
+            int px, py, ax, ay, bx, by;
+            px = scanner.nextInt();
+            py = scanner.nextInt();
+            ax = scanner.nextInt();
+            ay = scanner.nextInt();
+            bx = scanner.nextInt();
+            by = scanner.nextInt();
+ 
+            // Calculate distances between points
+            double pa = dist(px, py, ax, ay);
+            double pb = dist(px, py, bx, by);
+            double oa = dist(0, 0, ax, ay);
+            double ob = dist(0, 0, bx, by);
+            double ab = dist(ax, ay, bx, by);
+ 
+            // Initialize the answer to a large value
+            double ans = Double.MAX_VALUE;
+ 
+            // Update answer by considering different cases
+            ans = Math.min(ans, Math.max(pa, oa));
+            ans = Math.min(ans, Math.max(pb, ob));
+            ans = Math.min(ans, Math.max(ab / 2, Math.max(pa, ob)));
+            ans = Math.min(ans, Math.max(ab / 2, Math.max(pb, oa)));
+ 
+            // Output the result with 10 decimal places
+            System.out.println(String.format("%.10f", ans));
+        }
+ 
+        scanner.close();
+    }
+ 
+    // Method to calculate the distance between two points
+    private static double dist(int x1, int y1, int x2, int y2) {
+        return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+    }
+}
