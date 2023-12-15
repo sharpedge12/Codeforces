@@ -1,0 +1,23 @@
+import java.util.*;
+import java.io.PrintWriter;
+
+
+public class main {
+
+
+
+    public static void main(String[] args) {
+
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner sc= new Scanner(System.in);
+        int T = sc.nextInt();
+        while(T-- > 0) {
+            int n = sc.nextInt();
+            
+            out.flush();
+        }
+        out.close();
+    }
+}
+
+
