@@ -1,0 +1,41 @@
+import java.util.*;
+import java.io.PrintWriter;
+ 
+ 
+public class main {
+ 
+    public static void main(String[] args) {
+ 
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner sc= new Scanner(System.in);
+        int T = sc.nextInt();
+        while(T-- > 0) {
+            long n = sc.nextLong();
+            long mina = Integer.MAX_VALUE ;
+            long minb = Integer.MAX_VALUE ;
+            long suma = 0 ;
+            long sumb = 0 ;
+            for(long i =0 ; i < n ; i++){
+                long x = sc.nextLong();
+                mina = Math.min(mina , x);
+                suma += x;
+            }for(long i =0 ; i < n ; i++){
+                long x = sc.nextLong();
+                minb = Math.min(minb , x);
+                sumb += x ;
+            }
+ 
+            long w = sumb + (mina*n);
+            long v = suma + (minb*n);
+ 
+ 
+            out.println(Math.min(w , v));
+ 
+ 
+ 
+            out.flush();
+        }
+        out.close();
+    }
+}
+ 
