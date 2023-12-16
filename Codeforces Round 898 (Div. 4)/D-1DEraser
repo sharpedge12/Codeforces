@@ -1,0 +1,30 @@
+import java.util.*;
+import java.io.PrintWriter;
+ 
+ 
+public class main {
+ 
+    public static void main(String[] args) {
+ 
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner sc= new Scanner(System.in);
+        int T = sc.nextInt();
+        while(T-- > 0) {
+            long n = sc.nextLong();
+            long k = sc.nextLong();
+            String s = sc.next();
+            int cnt = 0 ;
+            for(int i = 0 ; i < n ; i++){
+                if(s.charAt(i) == 'B'){
+                    i = (int) (i + k - 1);
+                    cnt++;
+                }
+            }
+ 
+            out.println(cnt);
+ 
+            out.flush();
+        }
+        out.close();
+    }
+}
