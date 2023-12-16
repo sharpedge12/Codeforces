@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.PrintWriter;
+ 
+ 
+public class main {
+ 
+    public static void main(String[] args) {
+ 
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner sc= new Scanner(System.in);
+        int T = sc.nextInt();
+        while(T-- > 0) {
+            long n = sc.nextLong();
+            long s = sc.nextLong();
+            long e = sc.nextLong();
+            int flag = 0 ;
+            for(long i = 0 ; i < n -1 ; i++){
+                long st = sc.nextLong();
+                long et = sc.nextLong();
+ 
+                if(st >= s){
+                    if(et >= e){
+                        flag = 1 ;
+                    }
+                }
+            }
+ 
+            if(flag == 0){
+                out.println(s);
+            }else{
+                out.println(-1);
+            }
+ 
+ 
+            out.flush();
+        }
+        out.close();
+    }
+}
