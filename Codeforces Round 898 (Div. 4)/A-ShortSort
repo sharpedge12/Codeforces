@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.PrintWriter;
+ 
+ 
+public class main {
+ 
+    public static void main(String[] args) {
+ 
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner sc= new Scanner(System.in);
+        int T = sc.nextInt();
+        while(T-- > 0) {
+            String s = sc.next();
+            int cnt = 0 ;
+            if(s.charAt(0) == 'a'){
+                cnt++;
+            }
+            if(s.charAt(1) == 'b'){
+                cnt++;
+            }
+ 
+            if(s.charAt(2) == 'c'){
+                cnt++;
+            }
+ 
+            if(cnt > 0){
+                out.println("YES");
+            }else{
+                out.println("NO");
+            }
+ 
+ 
+ 
+            out.flush();
+        }
+        out.close();
+    }
+}
+ 
