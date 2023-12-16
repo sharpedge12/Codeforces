@@ -1,0 +1,47 @@
+import java.util.*;
+import java.io.PrintWriter;
+ 
+ 
+public class main {
+ 
+    public static void main(String[] args) {
+ 
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner sc= new Scanner(System.in);
+        int T = sc.nextInt();
+        while(T-- > 0) {
+            int n = sc.nextInt();
+            HashSet[] arr = new HashSet[n];
+            HashSet<Integer> uu = new HashSet<>();
+            for(int i = 0  ; i < n ; i++){
+                HashSet<Integer> temp = new HashSet<>();
+                int j = sc.nextInt();
+                while(j-- > 0){
+                    temp.add(sc.nextInt());
+                }
+                uu.addAll(temp);
+                arr[i] = temp ;
+            }
+ 
+            int max = 0 ;
+ 
+            for(int i : uu){
+                HashSet<Integer> u = new HashSet<>();
+                for(int k = 0 ; k < n ; k++){
+                    if(!arr[k].contains(i)){
+                        u.addAll(arr[k]);
+                    }
+                }
+ 
+                max = Math.max(max , u.size());
+ 
+            }
+ 
+ 
+ 
+            out.println(max);
+            out.flush();
+        }
+        out.close();
+    }
+}
