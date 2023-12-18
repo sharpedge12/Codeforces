@@ -1,0 +1,62 @@
+import java.util.*;
+import java.io.PrintWriter;
+ 
+ 
+public class Main {
+ 
+    public static boolean check(String s1 , String s2){
+        for(int i = 0 ; i < Math.min(s1.length() , s2.length()) ; i++){
+            if(s1.charAt(i) == s2.charAt(i)){
+                return false;
+            }
+        }
+ 
+        return true;
+    }
+ 
+    public static void main(String[] args) {
+ 
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner sc= new Scanner(System.in);
+ 
+        int[] tb = new int[32];
+        
+        
+        int n = sc.nextInt();
+        
+        while (n > 0) {
+            int task = sc.nextInt();
+            if (task == 1) {
+                int x = sc.nextInt();
+                tb[x]++;
+            } else {
+                int w = sc.nextInt();
+                
+                int[] arr = tb.clone();
+                
+                boolean pos = true;
+                int num = 0;
+                while (num < 30) {
+                    if ((w >> num & 1) == 1) {
+                        if (arr[num] > 0) {
+                            arr[num]--;
+                        } else {
+                            pos = false;
+                        }
+                    }
+                    arr[num + 1] += arr[num] / 2;
+                    num++;
+                }
+                if (pos) {
+                    System.out.println("YES");
+                } else {
+                    System.out.println("NO");
+                }
+            }
+            n--;
+        }
+ 
+        out.flush();
+        out.close();
+    }
+}
