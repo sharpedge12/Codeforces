@@ -1,0 +1,39 @@
+import java.util.*;
+import java.io.PrintWriter;
+ 
+ 
+public class Main {
+ 
+    public static void main(String[] args) {
+ 
+        PrintWriter out = new PrintWriter(System.out);
+        Scanner sc= new Scanner(System.in);
+        int T = sc.nextInt();
+        while(T-- > 0) {
+            String s = sc.next();
+ 
+            int x = 1 ;
+ 
+            while( x < s.length() &&  s.charAt(x) == '0'){
+                x++;
+            }
+ 
+            if(x < s.length()){
+                String s1 = s.substring(0 , x);
+                String s2 = s.substring(x);
+                if(Integer.parseInt(s1) < Integer.parseInt(s2)){
+                    out.println(s1 + " " + s2);
+                }else{
+                    out.println(-1);
+                }
+            }else{
+                out.println(-1);
+            }
+ 
+ 
+ 
+            out.flush();
+        }
+        out.close();
+    }
+}
